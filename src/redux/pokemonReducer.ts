@@ -2,12 +2,28 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import api from '../api/api';
 
 export const fetchAllPokemon = createAsyncThunk(
-  'pokemon/fetchAllPokemon',
+  'pokemon/fetchAll',
   async (_, thunkAPI) => {
     try {
       const response = await api.pokemon.fetchAll();
       const data = await response;
       if (!data.count) {
+        return false;
+      }
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue("Failed to fetch issues.");
+    }
+  }
+);
+
+export const fetchPokemonbyId = createAsyncThunk(
+  'pokemon/fetchbyId',
+  async (id: number, thunkAPI) => {
+    try {
+      const response = await api.pokemon.fetchById(id);
+      const data = await response;
+      if (!data.name) {
         return false;
       }
       return data;

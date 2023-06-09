@@ -51,7 +51,7 @@ const request = {
 
 const pokemon = {
   fetchAll: () => request.get<Result>(`pokemon`),
-  fetchByName: (name: string) => request.get<Details>(`pokemon/${name}`),
+  fetchById: (id: number) => request.get<Details>(`pokemon/${id}`),
 };
 
 const api = {
