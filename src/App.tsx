@@ -1,9 +1,9 @@
 import React from 'react';
-import HomePage from './HomePage';
+import HomeScreen from './screens/HomeScreen';
 
 function App() {
   return (
-    <HomePage />
+    <HomeScreen />
   );
 }
 

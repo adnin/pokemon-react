@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useAppDispatch, RootState, AppDispatch } from "./redux/index";
-import { fetchAllPokemon } from "./redux/pokemonReducer";
+import { useAppDispatch, RootState, AppDispatch } from "../redux/index";
+import { fetchAllPokemon } from "../redux/pokemonReducer";
 
-const HomePage = () => {
+const HomeScreen = () => {
 
     const dispatch: AppDispatch = useAppDispatch();
     const pokemons = useSelector((state: RootState) => state.pokemon.result)
@@ -27,10 +27,10 @@ const HomePage = () => {
     }
 
     return(
-        <div>
+        <div className="container flex items-center">
             Home Page
         </div>
     )
 }
 
-export default HomePage;
+export default HomeScreen;

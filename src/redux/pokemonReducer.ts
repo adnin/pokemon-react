@@ -17,15 +17,26 @@ export const fetchAllPokemon = createAsyncThunk(
   }
 );
 
+interface Result {
+  count: number;
+  next: string;
+  previous: string;
+  results: []
+}
 
 interface PokemonState {
-  result: {};
+  result: Result;
   loading: boolean;
   error: string | null;
 }
 
 const initialState: PokemonState = {
-  result: {},
+  result: {
+    count: 0,
+    next: '',
+    previous: '',
+    results: []
+  },
   loading: false,
   error: null,
 };
@@ -42,7 +53,7 @@ export const pokemonSlice = createSlice({
       })
       .addCase(fetchAllPokemon.fulfilled, (state, action) => {
         state.loading = false;
-        state.result = action.payload;
+        state.result = action.payload  as Result;
       })
       .addCase(fetchAllPokemon.rejected, (state, action) => {
         state.loading = false;
