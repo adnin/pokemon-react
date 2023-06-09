@@ -5,10 +5,10 @@ module.exports = {
     extend: {
       colors: {
         'home-bg': '#392d4d',
-        'card-container': '#cca05a',
+        'card-container': '#fed87d',
         'card-name': '#ffce96',
         'card-font-color': '#985046',
-        'card-name-bg': '#fed87d',
+        'card-name-bg': '#cca05a',
         'card-border-color': '#ae7240'
       },
     },

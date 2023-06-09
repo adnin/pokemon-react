@@ -34,8 +34,8 @@ export default function PokemonCard({name, url} : PokemonProps) {
             <img className="w-full" 
                 src={pokemonDetails.sprites.front_shiny} alt={`${name} avatar`} />
         }
+        <h1 className='text-center font-bold text-card-font-color text-xl capitalize mb-4'>{name}</h1>
         <div className='card-container bg-card-name-bg p-2'>
-            <h1 className='text-center font-bold text-card-font-color text-xl capitalize'>{name}</h1>
             {pokemonDetails && 
                 <div className="grid grid-cols-3 gap-2">
                     {pokemonDetails.types.map((pokemonTypes: PokemonTypes, i) => (
