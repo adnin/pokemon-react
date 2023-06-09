@@ -29,7 +29,7 @@ export default function PokemonCard({name, url} : PokemonProps) {
 
 
   return (
-    <div className='shadow bg-card-container rounded border-4 border-card-border-color'>
+    <div className='shadow bg-card-bg hover:bg-card-bg-hover hover:-translate-y-1 hover:scale-105 hover:border-2 duration-300 rounded border-4 border-card-border-color'>
         {pokemonDetails && 
             <img className="w-full" 
                 src={pokemonDetails.sprites.front_shiny} alt={`${name} avatar`} />

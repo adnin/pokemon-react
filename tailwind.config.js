@@ -5,7 +5,8 @@ module.exports = {
     extend: {
       colors: {
         'home-bg': '#392d4d',
-        'card-container': '#fed87d',
+        'card-bg': '#ffe976',
+        'card-bg-hover': '#fed87d',
         'card-name': '#ffce96',
         'card-font-color': '#985046',
         'card-name-bg': '#cca05a',
