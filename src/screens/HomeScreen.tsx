@@ -29,8 +29,8 @@ const HomeScreen = () => {
     }
 
     return(
-        <div className="container p-6">
-            <div className="grid grid-cols-4 gap-3">
+        <div className="container p-6 bg-home-bg">
+            <div className="grid grid-cols-6 gap-2">
               {pokemons.map(({name, url}, i) => (
                 <PokemonCard
                   key={i}

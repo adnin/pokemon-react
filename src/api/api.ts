@@ -1,17 +1,10 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
-
+import { PokemonDetails } from '../interfaces/Pokemon';
 interface Result {
     count: 0;
     next: string;
     previous: string;
     results: [];
-}
-
-interface Details {
-    name: string;
-    abilities: [];
-    sprites: {};
-    stats: [];
 }
 
 axios.defaults.baseURL = 'https://pokeapi.co/api/v2';
@@ -50,8 +43,8 @@ const request = {
 };
 
 const pokemon = {
-  fetchAll: () => request.get<Result>(`pokemon`),
-  fetchById: (id: number) => request.get<Details>(`pokemon/${id}`),
+  fetchAll: (offset: number = 0, limit: number = 24) => request.get<Result>(`pokemon?offset=${offset}&limit=${limit}`),
+  fetchById: (id: number) => request.get<PokemonDetails>(`pokemon/${id}`),
 };
 
 const api = {
