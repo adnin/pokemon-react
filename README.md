@@ -25,9 +25,9 @@ This project display some pokemon using pokeapi
 
 # Screenshots
 
-![Alt text](https://github.com/adnin/pokemon-react/tree/master/screenshots/List.png "List")
+![Alt text](https://github.com/adnin/pokemon-react/blob/master/screenshots/List.png "List")
 
-![Alt text](https://github.com/adnin/pokemon-react/tree/master/screenshots/Details.png "Details")
+![Alt text](https://github.com/adnin/pokemon-react/blob/master/screenshots/Details.png "Details")
 
 ## Available Scripts
 
