@@ -1,6 +1,27 @@
-# Getting Started with Create React App
+# Pokemon Display React App 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project display some pokemon using pokeapi
+
+# Tech stack
+
+* react 
+* tailwind 
+* redux 
+* axios 
+* lodash
+
+# Features
+* List of Pokemon with name and image
+* Pagination
+* Pokemon stats and information. as in HP, etc.
+
+# Folder Structure
+* api - Endpoint request [GET, POST]
+* components - Reusable functions
+* interfaces - Function props type
+* redux - Reduces state
+* screens - Pages route element
+* utilities - Component helpers
 
 ## Available Scripts
 
