@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import api from '../api/api';
+import api, { IFetchAllParam } from '../api/api';
 
 export const fetchAllPokemon = createAsyncThunk(
   'pokemon/fetchAll',
-  async (_, thunkAPI) => {
+  async (params: IFetchAllParam, thunkAPI) => {
     try {
-      const response = await api.pokemon.fetchAll();
+      const response = await api.pokemon.fetchAll(params);
       const data = await response;
       if (!data.count) {
         return false;

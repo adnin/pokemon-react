@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { PokemonTypes } from '../interfaces/PokemonTypes'
 import BadgeColor from '../utilities/BadgeColor'
+import { IPokemonTypes } from '../interfaces/PokemonTypes'
 
-export default function PokemonBadge({type}: PokemonTypes) {
+export default function PokemonBadge({type}: IPokemonTypes) {
   const [color, setColor] = useState('')
 
   useEffect(() => {

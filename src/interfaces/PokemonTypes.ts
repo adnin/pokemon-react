@@ -1,9 +1,9 @@
-interface PokemonType {
+interface IPokemonType {
     name: string;
     url: string;
 }
 
-export interface PokemonTypes {
+export interface IPokemonTypes {
     slot: number;
-    type: PokemonType;
+    type: IPokemonType;
 }
