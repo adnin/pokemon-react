@@ -39,7 +39,6 @@ export default function PokemonContainer({url} : IPokemon) {
                 <CardContentLoader viewBox="0 0 400 560" />
             </div>)
         }
-
     </div>
   )
 }

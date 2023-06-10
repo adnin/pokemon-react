@@ -12,7 +12,7 @@ export default function PokemonBadge({type}: IPokemonTypes) {
 
   return (
     <>
-    {color && (<div className={`${color} rounded-md shadow-md text-center font-bold p-1`}>{type.name}</div>)}
+        {color && (<div className={`${color} rounded-md shadow-md text-center font-bold p-1`}>{type.name}</div>)}
     </>
   )
 }

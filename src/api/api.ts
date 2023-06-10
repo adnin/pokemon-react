@@ -12,8 +12,6 @@ export interface IFetchAllParam {
     limit: number;
 }
 
-axios.defaults.baseURL = 'https://pokeapi.co/api/v2';
-
 axios.interceptors.response.use(
   (res) => res,
   (error: AxiosError) => {
@@ -48,8 +46,9 @@ const request = {
 };
 
 const pokemon = {
-  fetchAll: ({offset, limit}: IFetchAllParam) => request.get<Result>(`pokemon?offset=${offset}&limit=${limit}`),
-  fetchById: (id: number) => request.get<IPokemonDetails>(`pokemon/${id}`),
+  fetchAll: ({offset, limit}: IFetchAllParam) => request.get<Result>(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`),
+  fetchByPagination: (url: string) => request.get<Result>(url),
+  fetchById: (id: number) => request.get<IPokemonDetails>(`https://pokeapi.co/api/v2/pokemon/${id}`),
 };
 
 const api = {

@@ -2,15 +2,15 @@ import React, { useState, useEffect, FormEvent } from "react";
 import { useSelector } from "react-redux";
 
 import { useAppDispatch, RootState, AppDispatch } from "../redux/index";
-import { fetchAllPokemon } from "../redux/pokemonReducer";
+import { fetchAllPokemon, fetchByPaginationPokemon } from "../redux/pokemonReducer";
 import PokemonContainer from "../components/PokemonContainer";
 import Pagination from "../components/Pagination";
 import { addTextChangeDebounce } from "../utilities/Debounce";
 import { IFetchAllParam } from "../api/api";
+import Loader from "../components/Loader";
 
 const HomeScreen = () => {
     const [col, setCol] = useState('grid-cols-6')
-    const [pokemons, setPokemons] = useState([])
     const [params, setParams] = useState<IFetchAllParam>({offset: 0, limit: 24})
     const dispatch: AppDispatch = useAppDispatch();
     const result = useSelector((state: RootState) => state.pokemon.result)
@@ -19,22 +19,21 @@ const HomeScreen = () => {
 
     const [isLoaded, setIsloaded] = useState(false)
 
-    const updateLimitHander = (event: FormEvent) => {
-      const parseValue = parseInt((event.target as HTMLInputElement).value)
-      if (parseValue == params.limit) {
-        return
+    const updateParamsHandler = (params: IFetchAllParam) => {
+      setParams(params)
+    }
+
+    const updatePageHandler = (type: string) => {
+      let url = result.previous;
+      if (type === 'Next') {
+        url = result.next
       }
-      
-      setParams({offset: 0, limit: parseValue})
+      addTextChangeDebounce(() => dispatch(fetchByPaginationPokemon(url)))
     }
 
     useEffect(() => {
       dispatch(fetchAllPokemon(params))
     }, [dispatch]);
-    
-    useEffect(() => {
-      setPokemons(result.results)
-    }, [result])
 
     useEffect(() => {
       if (!isLoaded) {
@@ -47,27 +46,42 @@ const HomeScreen = () => {
     useEffect(() => {
       setIsloaded(true)
     }, [])
-    
-    if (loading) {
-      return <div>Loading...</div>;
-    }
   
     if (error) {
       return <div>Error: {error}</div>;
     }
 
     return(
-        <div className="container p-6 bg-home-bg">
-            <div className={`grid ${col} gap-2`}>
-              {pokemons.map(({name, url}, i) => (
-                <PokemonContainer
-                  key={i}
-                  name={name}
-                  url={url}
-                />
-              ))}
+        <div className="bg-home-bg p-4 flex flex-col h-full min-h-screen">
+            <div className="item-center justify-center">
+                <img 
+                src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" 
+                className="object-cover h-42 w-128 m-auto" />
             </div>
-            <Pagination limit={params.limit} updateLimit={updateLimitHander} />
+            <Pagination 
+                  result={result} 
+                  params={params} 
+                  updateParams={updateParamsHandler} 
+                  updatePage={updatePageHandler} />
+            {loading && <Loader />}
+            {!loading && result && 
+              <>
+                <div className={`grid ${col} gap-2 content-evenly`}>
+                  {result.results.map(({name, url}) => (
+                    <PokemonContainer
+                      key={name}
+                      name={name}
+                      url={url}
+                    />
+                  ))}
+                </div>
+              </>
+            }
+            {!loading && <Pagination 
+              result={result} 
+              params={params} 
+              updateParams={updateParamsHandler} 
+              updatePage={updatePageHandler} />  }        
         </div>
     )
 }
