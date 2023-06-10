@@ -19,8 +19,8 @@ This project display some pokemon using pokeapi
 * api - Endpoint request [GET, POST]
 * components - Reusable functions
 * interfaces - Function props type
-* redux - Reduces state
-* screens - Pages route element
+* redux - State reducers
+* screens - Pages or Route element
 * utilities - Component helpers
 
 ## Available Scripts
