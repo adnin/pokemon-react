@@ -23,6 +23,12 @@ This project display some pokemon using pokeapi
 * screens - Pages or Route element
 * utilities - Component helpers
 
+# Screenshots
+
+![Alt text](https://github.com/adnin/pokemon-react/tree/master/screenshots/List.png "List")
+
+![Alt text](https://github.com/adnin/pokemon-react/tree/master/screenshots/Details.png "Details")
+
 ## Available Scripts
 
 In the project directory, you can run:
