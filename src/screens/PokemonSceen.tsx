@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { AppDispatch, useAppDispatch } from '../redux'
 import { useNavigate, useParams } from 'react-router-dom';
 import { fetchPokemonbyId } from '../redux/pokemonReducer';
-import CardContentLoader from '../components/CardContentLoader';
 import PokemonCard from '../components/PokemonCard';
 import { IPokemonDetails } from '../interfaces/PokemonDetails';
 import StatComonent from '../components/StatComonent';

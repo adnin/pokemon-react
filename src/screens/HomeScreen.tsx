@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { useAppDispatch, RootState, AppDispatch } from "../redux/index";
@@ -10,6 +10,7 @@ import { IFetchAllParam } from "../api/api";
 import Loader from "../components/Loader";
 
 const HomeScreen = () => {
+  
     const [col, setCol] = useState('grid-cols-6')
     const [params, setParams] = useState<IFetchAllParam>({offset: 0, limit: 24})
     const dispatch: AppDispatch = useAppDispatch();

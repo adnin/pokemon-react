@@ -2,6 +2,7 @@ import React from 'react'
 import ContentLoader from 'react-content-loader';
 
 export default function CardContentLoader(props: any) {
+  
     return (
         <ContentLoader
           backgroundColor="#ffe976"
